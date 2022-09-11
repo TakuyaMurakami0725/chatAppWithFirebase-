@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellId" rowHeight="230" id="JjV-Pi-tdC" customClass="ChatRoomTableViewCell" customModule="ChatAppWithFireBase" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="553" height="230"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JjV-Pi-tdC" id="acn-Cw-vZ1">
+                <rect key="frame" x="0.0" y="0.0" width="553" height="230"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="harper" translatesAutoresizingMaskIntoConstraints="NO" id="Zoh-xZ-YJI">
+                        <rect key="frame" x="30" y="85" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Zoh-xZ-YJI" secondAttribute="height" multiplier="1:1" id="BIX-Rf-aS9"/>
+                            <constraint firstAttribute="width" constant="60" id="Gzg-3m-cAO"/>
+                        </constraints>
+                    </imageView>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="メッセージがここに入ります" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wS-Oh-46X">
+                        <rect key="frame" x="100" y="25" width="250" height="180"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="250" id="V0S-e1-5xz"/>
+                        </constraints>
+                        <color key="textColor" systemColor="labelColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="12:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxD-mQ-E5Z">
+                        <rect key="frame" x="360" y="189" width="64" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="7wS-Oh-46X" secondAttribute="bottom" constant="25" id="LWO-gk-GY4"/>
+                    <constraint firstItem="Zoh-xZ-YJI" firstAttribute="centerY" secondItem="acn-Cw-vZ1" secondAttribute="centerY" id="Lyr-4f-5uF"/>
+                    <constraint firstItem="Zoh-xZ-YJI" firstAttribute="leading" secondItem="acn-Cw-vZ1" secondAttribute="leadingMargin" constant="10" id="SvJ-dM-Eu2"/>
+                    <constraint firstItem="cxD-mQ-E5Z" firstAttribute="leading" secondItem="7wS-Oh-46X" secondAttribute="trailing" constant="5" id="XLU-9d-6GM"/>
+                    <constraint firstItem="7wS-Oh-46X" firstAttribute="top" secondItem="acn-Cw-vZ1" secondAttribute="top" constant="25" id="YlO-op-nxa"/>
+                    <constraint firstItem="7wS-Oh-46X" firstAttribute="leading" secondItem="Zoh-xZ-YJI" secondAttribute="trailing" constant="10" id="hhT-kM-8uE"/>
+                    <constraint firstItem="7wS-Oh-46X" firstAttribute="bottom" secondItem="cxD-mQ-E5Z" secondAttribute="bottom" constant="10" id="uFl-7h-P2e"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="dateLabel" destination="cxD-mQ-E5Z" id="Oc2-rN-TXw"/>
+                <outlet property="messageTextView" destination="7wS-Oh-46X" id="vTc-xE-B5A"/>
+                <outlet property="messageTextViewWithConstrain" destination="V0S-e1-5xz" id="Ta1-QS-8Jm"/>
+                <outlet property="userImageView" destination="Zoh-xZ-YJI" id="vRb-O1-2nT"/>
+            </connections>
+            <point key="canvasLocation" x="-280.43478260869568" y="136.60714285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="harper" width="150" height="84"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
