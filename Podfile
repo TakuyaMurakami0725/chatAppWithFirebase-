@@ -10,5 +10,6 @@ target 'ChatAppWithFireBase' do
   pod 'FirebaseAuth'
   pod 'FirebaseFirestore'
   pod 'FirebaseStorage'
+  pod 'Nuke'
   
 end

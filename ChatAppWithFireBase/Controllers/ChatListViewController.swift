@@ -40,34 +40,29 @@ class ChatListViewController: UIViewController {
             self.present(signUpViewController, animated: true, completion: nil)
         }
         
+        let rightBarButton = UIBarButtonItem(title: "新規チャット", style: .plain, target: self, action: #selector(tappedNavRightBarButton))
+        navigationItem.rightBarButtonItem = rightBarButton
+        navigationItem.rightBarButtonItem?.tintColor = .white
+        
     }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        fetchUserInfoFromFirestore()
+//        fetchUserInfoFromFirestore()
     }
     
-    private func fetchUserInfoFromFirestore() {
-        Firestore.firestore().collection("users").getDocuments { [self] (snapshots, err) in
-            if let err = err {
-                print("user情報の取得に失敗しました\(err)")
-                return
-            }
-            
-            snapshots?.documents.forEach({ (snapshot) in
-                let dic = snapshot.data()
-                let user = User.init(dic: dic)
-                
-                self.users.append(user)
-                self.chatListTableView.reloadData()
-                
-                users.forEach{(user) in
-                    print("user.username", user.username)
-                }
-            })
-        }
+    @objc private func tappedNavRightBarButton() {
+        let storyboard = UIStoryboard.init(name:"UserList", bundle: nil)
+        let userListViewController = storyboard.instantiateViewController(withIdentifier: "UserListViewController")
+        let nav = UINavigationController(rootViewController: userListViewController)
+        self.present(nav, animated: true, completion: nil)
+        
+        print("tappedNavRightBarButton")
     }
+    
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
@@ -121,7 +116,7 @@ class ChatListTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        userImageView.layer.cornerRadius = 35
+//        userImageView.layer.cornerRadius = 35
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
